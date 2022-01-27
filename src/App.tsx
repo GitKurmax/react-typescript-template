@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useCallback, useState} from 'react';
+import {useDispatch} from "react-redux";
+import TypesForPropsFunctionDeclaration from "./components/TypesForPropsFunctionDeclaration";
+import TypesForPropsFunctionExpression from "./components/TypesForPropsFunctionExpression";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const dispatch = useDispatch()
+    let [count1, setCount1 ] = useState(0)
+    let [count2, setCount2 ] = useState(0)
+
+    const onClickOne = () => {
+        setCount1(count1 ? 0 : 1)
+        dispatch({type: 'SET_COUNTER', payload: count1})
+    }
+
+    const onClickTwo = () => {
+        setCount2(count2 ? 0 : 1)
+    }
+
+
+    return (
+        <div className="App">
+            <TypesForPropsFunctionDeclaration width={100} height={100} background={'red'} padding={15} margin={10} onClick={onClickOne}>
+                <div>Types for props function declaration</div>
+                <div>{count1}</div>
+            </TypesForPropsFunctionDeclaration>
+            <TypesForPropsFunctionExpression width={100} height={100} background={'green'} padding={15} margin={10} onClick={onClickTwo}>
+                <div>Types for props function expression</div>
+                <div>{count2}</div>
+            </TypesForPropsFunctionExpression>
+        </div>
+    );
 }
 
 export default App;
