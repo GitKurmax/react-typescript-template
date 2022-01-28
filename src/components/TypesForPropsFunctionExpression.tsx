@@ -1,5 +1,6 @@
-import React, {FC} from 'react';
+import React, {FC, ReactElement} from 'react';
 
+// You can also replace ReactElement with JSX.Element
 interface CardProps {
     width: number
     height: number
@@ -9,7 +10,7 @@ interface CardProps {
     onClick: () => void
 }
 
-const TypesForPropsFunctionExpression: FC<CardProps> = (props): JSX.Element => {
+const TypesForPropsFunctionExpression: FC<CardProps> = (props):  ReactElement => {
     const {children, width, height, background, padding, margin, onClick} = props
 
     return (
