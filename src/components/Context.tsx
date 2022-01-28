@@ -1,13 +1,8 @@
-import React, {createContext, useContext, useState} from 'react';
-
-interface Theme {
-    color: string
-    background: string
-}
+import React, {createContext, CSSProperties, useContext, useState} from 'react';
 
 type AvailableThemes = 'light' | 'dark'
 
-const themes: Record<AvailableThemes, Theme> = {
+const themes: Record<AvailableThemes, CSSProperties> = {
     light: {
         color: "#000000",
         background: "#eeeeee"
@@ -19,7 +14,7 @@ const themes: Record<AvailableThemes, Theme> = {
 }
 
 const ThemeContext = createContext({
-    themes: themes,
+    themes,
     toggle: (setTheme: React.Dispatch<AvailableThemes>, theme: AvailableThemes) => {
         setTheme(theme === 'light' ? 'dark' : 'light')
     }
