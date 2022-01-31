@@ -16,3 +16,9 @@ interface Person {
     edited?: Date
     url?: string
 }
+
+interface IState {
+    count1: Boolean | null
+    count2: Boolean | null
+    inputRedux: string
+}

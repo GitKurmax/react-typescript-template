@@ -8,3 +8,7 @@ export const store = createStore(
     rootReducer,
     composeEnhancers
 )
+
+export type RootState = ReturnType<typeof rootReducer>
+
+export type AppDispatch = typeof store.dispatch

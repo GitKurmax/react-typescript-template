@@ -9,6 +9,7 @@ import Title from "./components/Title";
 import UseRefHook from "./components/UseRefHook";
 import './App.css'
 import Context from "./components/Context";
+import ReduxTypes from "./components/ReduxTypes";
 
 function App() {
     const dispatch = useDispatch()
@@ -75,6 +76,12 @@ function App() {
                     <div>Working with context</div>
                 </Title>
                 <Context />
+            </div>
+            <div className={'grid-item'}>
+                <Title>
+                    <div>Redux Types</div>
+                </Title>
+                <ReduxTypes />
             </div>
         </div>
     );
